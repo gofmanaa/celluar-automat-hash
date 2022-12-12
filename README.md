@@ -18,9 +18,10 @@ The code includes several helper functions to assist with these operations:
 
 ## Exsample:
 
-We encrypt the string "Hello" and apply the algorithm of a one-dimensional cellular automaton to the binary representation of the string.
+We encrypt the string "Hello" and apply the algorithm of a one-dimensional cellular automaton to the binary representation of the string. And let's see the evolution of the data in the algorithm:
 
 ```
+Hello
 Binary presentation:
 0100100001100101011011000110110001101111
  |  |    ||  | | || ||   || ||   || ||||
@@ -63,5 +64,7 @@ Binary presentation:
  || ||  |  |  |  |    | |||| || ||  |   
 ||  | |||||||||||||  || |    |  | ||||  
 | ||| |            |||  ||  ||||| |   ||
-Encode result: 230033B836, [100011 0 110011 10111000 110110]
+  |   ||          ||  ||| |||     || || 
+0010001100000000001100111011100000110110
+Encode result: 230033B836
 ```

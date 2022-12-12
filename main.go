@@ -5,7 +5,9 @@ import (
 )
 
 func main() {
-	buf := stringToBytes("Hello World")
+	stringForEncoding := "Hello World"
+	fmt.Println(stringForEncoding)
+	buf := stringToBytes(stringForEncoding)
 	fmt.Println("Binary presentation:")
 	for _, n := range buf {
 		fmt.Printf("%08b", n)
@@ -31,20 +33,23 @@ func run(buf []byte) {
 			y[j+i*8] = uint(zeroOrOne)
 		}
 	}
-
+	show(y)
 	for gen := count; gen > 0; gen-- {
-		show(y)
-
 		for i := range y {
 			// Use the % operator to wrap the indices around the count variable.
 			y1[i] = f(y[(i-1+count)%count], y[i], y[(i+1)%count])
 		}
 
 		copy(y, y1)
+		show(y)
 	}
 
 	by := parseBinToHex(y)
-	fmt.Printf("Encode result: %X, %b\n", by, by)
+	for _, n := range by {
+		fmt.Printf("%08b", n)
+	}
+	fmt.Println()
+	fmt.Printf("Encode result: %X\n", by)
 }
 
 func show[T uint | byte](world []T) {
