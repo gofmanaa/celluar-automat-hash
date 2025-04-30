@@ -1,24 +1,27 @@
-This is a simple example of how cellular automata can be used to encrypt data. An example uses a one-dimensional cellular automaton.
 
-I had an idea to write some code that uses a cellular automaton algorithm to encrypt data. It turned out that this idea was described by Stefan Wolfram back in 1985. For more detail in the link below:
+# 🧠 Idea Overview
 
-https://content.wolfram.com/uploads/sites/34/2020/07/cryptography-cellular-automata.pdf
+This is a simple demonstration of how cellular automata can be used for data encryption. It uses a one-dimensional cellular automaton, inspired by ideas first introduced by Stephen Wolfram in 1985.
 
-## How it works
+More details in Wolfram's original paper:
+- Cryptography with Cellular Automata ([PDF][https://content.wolfram.com/uploads/sites/34/2020/07/cryptography-cellular-automata.pdf])
 
-The code includes several helper functions to assist with these operations:
+## 🔧 How It Works
 
-* `stringToBytes` converts a string to a slice of bytes
+The program includes several helper functions to handle data transformations and visualization:
 
-* `parseBinToHex` converts a slice of bytes to a hexadecimal string
+- stringToBytes: Converts a string into a byte slice.
+- parseBinToHex: Converts a byte slice into a hexadecimal string.
+- show: Visualizes a byte slice (printing for 0 and | for 1).
+- f: The core automaton rule function, defined as:
+    f(y1, y2, y3) = y1 ^ (y2 | y3)
 
-* `show` prints a slice of bytes as a visual representation (using 
-` ` for 0 and `|` for 1)
-* `f` is the custom algorithm that calculates the new slice of bytes. It takes three arguments, y1, y2, and y3, and returns the result of `y1 ^ (y2 | y3)`.
+This rule is applied across the data to simulate the cellular automaton's evolution.
 
-## Exsample:
+## Example
 
-We encrypt the string "Hello" and apply the algorithm of a one-dimensional cellular automaton to the binary representation of the string. And let's see the evolution of the data in the algorithm:
+We encrypt the string "Hello" by converting it into binary and applying the cellular automaton transformation step by step. Each step shows how the data evolves over time.
+
 
 ```
 Hello
